@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+        <script src="script.js"></script>
+        <title>a-frame</title>
+    </head>
+    <body>
+        <a-scene background = "color: #FFFAF6" cursor="rayOrigin: mouse; fuse: true; fuseTimeout: 500">
+            <a-assets>
+                <img id="logo-img" src="https://cdn.glitch.global/40b7ed8c-5f85-49dd-afb5-d509594a8ac2/logo_invisibleroom_black%20(4).png?v=1683277762943"/>
+                <img id="rainbow-texture" src="https://cdn.glitch.global/40b7ed8c-5f85-49dd-afb5-d509594a8ac2/RainbowTexture_seamless.jpg?v=1683275893167"/>
+                <a-asset-item id="f1" src="/f1/scene.gltf"></a-asset-item>
+            </a-assets>
+            <a-entity gltf-model="#f1"
+            position="0 1 -5"
+            rotation="0 45 0"
+            scale="2 2 2"></a-entity>
+            <a-plane
+            position="0 0 -5"
+            rotation="-90 0 0"
+            scale="4 4 4"
+            material="shader:gif;src:url(https://cdn.glitch.global/40b7ed8c-5f85-49dd-afb5-d509594a8ac2/rainbow.gif?v=1683280007314)"
+            repeat="2 2"
+            src="#rainbow-texture"></a-plane>
+            <a-sphere
+            color="#E75A87"
+            radius="0.4"
+            position="0.2 0.4 -3.5"
+            animation="property: scale; to: 2 2 2; dur: 2000; easing:easeInOutQuad; loop: true;dir:alternate"
+            animation__2="property: position; to: 0.2 0.9 -3.5; dur: 2000; easing:easeInOutQuad; loop: true; dir:alternate"
+            opacity="0.8"
+            yellow-on-click></a-sphere>
+            <!-- <a-text
+            value="INVISIBLE ROOM"
+            position="2 4 -5"
+            color="#323232"
+            align="center"></a-text> -->
+            <a-image
+            src="#logo-img"
+            width="1.24"
+            height="0.446"
+            position="2 4 -5"
+            scale="2 2 2"></a-image>
+        </a-scene>
+    </body>
+</html>
